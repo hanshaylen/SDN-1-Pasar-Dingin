@@ -10,70 +10,159 @@
     body {line-height:1.6;background:#f9f9f9;color:#333;}
 
     /* Navbar */
-    .navbar {display:flex;justify-content:space-between;align-items:center;padding:15px 20px;background:#2C3E50;color:#fff;position:sticky;top:0;z-index:100;flex-wrap:wrap;}
-    .navbar .logo {font-size:22px;font-weight:700;letter-spacing:1px;}
-    .navbar ul {list-style:none;display:flex;flex-wrap:wrap;margin-top:10px;}
-    .navbar ul li {margin-left:20px;}
-    .navbar ul li a {color:inherit;text-decoration:none;transition:0.3s;font-size:16px;}
+    .navbar {
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:15px 20px;
+        background:#2C3E50;
+        color:#fff;
+        position:sticky;
+        top:0;
+        z-index:100;
+    }
+
+    .logo {font-size:22px;font-weight:700;letter-spacing:1px;}
+
+    /* MENU LIST */
+    .navbar ul {
+        list-style:none;
+        display:flex;
+        gap:20px;
+    }
+
+    .navbar ul li a {
+        color:white;
+        text-decoration:none;
+        font-size:16px;
+        transition:0.3s;
+    }
     .navbar ul li a:hover {color:#e67e22;}
 
-    /* Hero Section */
-    .hero {display:flex;align-items:center;justify-content:center;height:80vh;background:url('https://source.unsplash.com/1600x900/?school,education') no-repeat center center/cover;color:#fff;text-align:center;position:relative;padding:0 10px;}
-    .hero::after {content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);}
+    /* HAMBURGER */
+    .hamburger {
+        display:none;
+        font-size:30px;
+        cursor:pointer;
+        user-select:none;
+    }
+
+    /* Responsive Menu */
+    @media(max-width:768px){
+        .navbar ul {
+            position:absolute;
+            top:70px;
+            right:0;
+            width:200px;
+            background:#2C3E50;
+            flex-direction:column;
+            text-align:left;
+            padding:15px;
+            display:none;
+            border-bottom-left-radius:12px;
+        }
+
+        .navbar ul.show {
+            display:block;
+        }
+
+        .hamburger {
+            display:block;
+        }
+    }
+
+    /* Hero */
+    .hero {
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        height:80vh;
+        background:url('https://source.unsplash.com/1600x900/?school,education') no-repeat center center/cover;
+        color:#fff;
+        text-align:center;
+        position:relative;
+        padding:0 10px;
+    }
+    .hero::after {
+        content:'';
+        position:absolute;top:0;left:0;width:100%;height:100%;
+        background:rgba(0,0,0,0.5);
+    }
     .hero-content {position:relative;z-index:1;}
     .hero h1 {font-size:36px;margin-bottom:15px;}
     .hero p {font-size:16px;margin-bottom:20px;}
-    .btn {padding:10px 25px;background:#e67e22;color:#fff;border:none;border-radius:25px;cursor:pointer;transition:0.3s;font-weight:600;margin:5px;}
+
+    .btn {
+        padding:10px 25px;background:#e67e22;color:#fff;
+        border:none;border-radius:25px;margin:5px;
+        cursor:pointer;transition:.3s;font-weight:600;
+    }
     .btn:hover {background:#d35400;}
-    .btn a {color:white;text-decoration:none;font-size:14px;}
+    .btn a {color:white;text-decoration:none;}
 
     section {padding:60px 20px;}
-    .section-title {text-align:center;font-size:28px;margin-bottom:40px;color:#2C3E50;position:relative;}
-    .section-title::after {content:'';display:block;width:50px;height:4px;background:#e67e22;margin:10px auto 0;border-radius:2px;}
+    .section-title {
+        text-align:center;font-size:28px;margin-bottom:40px;color:#2C3E50;
+    }
 
-    /* About Section */
-    .about {display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;}
-    .about img {width:100%;max-width:400px;border-radius:15px;margin-bottom:20px;}
-    .about-text {flex:1;min-width:250px;margin-left:0;}
+    .section-title::after {
+        content:'';display:block;width:50px;height:4px;
+        background:#e67e22;margin:10px auto;border-radius:2px;
+    }
 
-    /* Gallery Section */
-    .gallery {display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;}
-    .gallery img {width:100%;border-radius:15px;transition:transform 0.3s;}
+    /* About */
+    .about {display:flex;flex-wrap:wrap;align-items:center;gap:20px;}
+    .about img {width:100%;max-width:400px;border-radius:15px;}
+    .about-text {flex:1;min-width:250px;}
+
+    /* Gallery */
+    .gallery {
+        display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;
+    }
+    .gallery img {width:100%;border-radius:15px;transition:.3s;}
     .gallery img:hover {transform:scale(1.05);}
 
-    /* Teachers Section */
-    .teachers {display:flex;flex-wrap:wrap;gap:15px;justify-content:center;margin-top:20px;}
-    .teacher-card {background:#fff;border-radius:15px;box-shadow:0 8px 15px rgba(0,0,0,0.1);padding:15px;display:flex;flex-direction:column;align-items:center;text-align:center;}
-    .teacher-card img {width:100px;height:100px;border-radius:50%;object-fit:cover;margin-bottom:10px;}
-    .teacher-card h4 {margin-bottom:5px;color:#2C3E50;font-size:16px;}
-    .teacher-card p {font-size:14px;color:#555;}
+    /* Teachers */
+    .teachers {
+        display:flex;flex-wrap:wrap;gap:15px;justify-content:center;
+    }
+    .teacher-card {
+        background:#fff;border-radius:15px;
+        padding:15px;text-align:center;
+        width:180px;
+        box-shadow:0 8px 15px rgba(0,0,0,0.1);
+    }
+    .teacher-card img {
+        width:100px;height:100px;border-radius:50%;object-fit:cover;margin-bottom:10px;
+    }
 
-    /* News Section */
-    .news-cards {display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px;}
-    .card {background:#fff;border-radius:15px;overflow:hidden;box-shadow:0 8px 15px rgba(0,0,0,0.1);transition:transform 0.3s;}
+    /* News Cards */
+    .news-cards {
+        display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px;
+    }
+    .card {
+        background:#fff;border-radius:15px;overflow:hidden;box-shadow:0 8px 15px rgba(0,0,0,0.1);transition:.3s;
+    }
+    .card:hover {transform:translateY(-5px);}
     .card img {width:100%;height:180px;object-fit:cover;}
     .card-body {padding:15px;}
-    .card-body h3 {margin-bottom:10px;color:#2C3E50;font-size:18px;}
-    .card-body p {font-size:14px;color:#555;}
-    .card:hover {transform:translateY(-5px);}
 
-    /* Footer */
-    footer {background:#2C3E50;color:#fff;text-align:center;padding:30px 20px;}
-    footer a {color:#e67e22;text-decoration:none;}
-
-    @media(max-width:768px){
-        .navbar ul {flex-direction:column;margin-top:10px;}
-        .navbar ul li {margin:10px 0 0 0;}
-        .hero h1 {font-size:28px;}
-        .hero p {font-size:14px;}
-        .section-title {font-size:24px;}
+    footer {
+        background:#2C3E50;color:#fff;text-align:center;padding:30px 20px;
     }
+    footer a {color:#e67e22;}
 </style>
 </head>
 <body>
+
     <nav class="navbar">
         <div class="logo">SDN 1 Pasar Dingin</div>
-        <ul>
+
+        <!-- HAMBURGER ICON -->
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+
+        <!-- MENU LIST -->
+        <ul id="menuList">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="#gallery">Gallery</a></li>
@@ -83,21 +172,33 @@
         </ul>
     </nav>
 
-    <!-- Hero Section -->
+    <script>
+        function toggleMenu(){
+            document.getElementById("menuList").classList.toggle("show");
+        }
+    </script>
+
+    <!-- HERO -->
     <section class="hero">
         <div class="hero-content">
+
+            <img src="https://source.unsplash.com/200x200/?school,logo"
+                 alt="Logo Sekolah"
+                 style="width:150px;height:150px;border-radius:50%;margin-bottom:20px;">
+
             <h1>Selamat Datang di SDN 1 Pasar Dingin</h1>
             <p>Mendidik Generasi Cerdas, Kreatif, dan Berakhlak Mulia</p>
+
             <button class="btn"><a href="about.html">Selengkapnya</a></button>
             <button class="btn"><a href="contact.html">Hubungi Kami</a></button>
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- ABOUT -->
     <section id="about">
         <h2 class="section-title">Tentang Sekolah</h2>
         <div class="about">
-            <img src="https://source.unsplash.com/600x400/?school,classroom" alt="SDN 1 Pasar Dingin">
+            <img src="https://source.unsplash.com/600x400/?school,classroom">
             <div class="about-text">
                 <p>SDN 1 Pasar Dingin adalah sekolah dasar yang berdedikasi untuk mencetak generasi unggul. Dengan kurikulum modern dan fasilitas lengkap, sekolah kami mendukung siswa dalam belajar, berkreasi, dan berkembang secara optimal.</p>
                 <p>Kami menekankan pendidikan karakter, disiplin, dan kreativitas agar setiap siswa mampu menghadapi tantangan masa depan dengan percaya diri dan berakhlak mulia.</p>
@@ -105,47 +206,104 @@
         </div>
     </section>
 
-    <!-- Gallery Section -->
+    <!-- GALLERY -->
     <section id="gallery">
         <h2 class="section-title">Galeri Kegiatan</h2>
         <div class="gallery">
-            <img src="https://source.unsplash.com/400x300/?students,school" alt="Gallery">
-            <img src="https://source.unsplash.com/401x301/?classroom" alt="Gallery">
-            <img src="https://source.unsplash.com/402x302/?children,learning" alt="Gallery">
-            <img src="https://source.unsplash.com/403x303/?school,activity" alt="Gallery">
+            <img src="https://source.unsplash.com/400x300/?students,school">
+            <img src="https://source.unsplash.com/401x301/?classroom">
+            <img src="https://source.unsplash.com/402x302/?children,learning">
+            <img src="https://source.unsplash.com/403x303/?school,activity">
         </div>
     </section>
 
-    <!-- Teachers Section -->
-    <section id="teachers">
-        <h2 class="section-title">Guru SDN 1 Pasar Dingin</h2>
-        <div class="teachers">
-            <div class="teacher-card"><img src="https://source.unsplash.com/100x100/?teacher,1"><h4>Budi Santoso</h4><p>Guru Matematika</p></div>
-            <div class="teacher-card"><img src="https://source.unsplash.com/101x101/?teacher,2"><h4>Siti Aminah</h4><p>Guru Bahasa Indonesia</p></div>
-            <div class="teacher-card"><img src="https://source.unsplash.com/102x102/?teacher,3"><h4>Agus Pratama</h4><p>Guru IPA</p></div>
-            <div class="teacher-card"><img src="https://source.unsplash.com/103x103/?teacher,4"><h4>Rina Dewi</h4><p>Guru IPS</p></div>
-            <div class="teacher-card"><img src="https://source.unsplash.com/104x104/?teacher,5"><h4>Hadi Kurniawan</h4><p>Guru Seni Budaya</p></div>
-            <div class="teacher-card"><img src="https://source.unsplash.com/105x105/?teacher,6"><h4>Fitri Handayani</h4><p>Guru PJOK</p></div>
-            <div class="teacher-card"><img src="https://source.unsplash.com/106x106/?teacher,7"><h4>Dewi Lestari</h4><p>Guru Bahasa Inggris</p></div>
-            <div class="teacher-card"><img src="https://source.unsplash.com/107x107/?teacher,8"><h4>Arif Setiawan</h4><p>Guru TIK</p></div>
-            <div class="teacher-card"><img src="https://source.unsplash.com/108x108/?teacher,9"><h4>Nur Aisyah</h4><p>Guru Agama</p></div>
-        </div>
-    </section>
+    <!-- TEACHERS -->
+<section id="teachers">
+    <h2 class="section-title">Guru SDN 1 Pasar Dingin</h2>
 
-    <!-- News Section -->
+    <div class="teachers">
+
+        <!-- Guru 1 -->
+        <div class="teacher-card">
+            <img src="https://source.unsplash.com/100x100/?teacher,man" alt="">
+            <h4>Budi Santoso</h4>
+            <p>Guru Matematika</p>
+        </div>
+
+        <!-- Guru 2 -->
+        <div class="teacher-card">
+            <img src="https://source.unsplash.com/101x101/?teacher,woman" alt="">
+            <h4>Siti Aminah</h4>
+            <p>Guru Bahasa Indonesia</p>
+        </div>
+
+        <!-- Guru 3 -->
+        <div class="teacher-card">
+            <img src="https://source.unsplash.com/102x102/?teacher,science" alt="">
+            <h4>Agus Pratama</h4>
+            <p>Guru IPA</p>
+        </div>
+
+        <!-- Guru 4 -->
+        <div class="teacher-card">
+            <img src="https://source.unsplash.com/103x103/?teacher,math" alt="">
+            <h4>Dewi Lestari</h4>
+            <p>Guru Kelas</p>
+        </div>
+
+        <!-- Guru 5 -->
+        <div class="teacher-card">
+            <img src="https://source.unsplash.com/104x104/?teacher,history" alt="">
+            <h4>Arif Setiawan</h4>
+            <p>Guru IPS</p>
+        </div>
+
+        <!-- Guru 6 -->
+        <div class="teacher-card">
+            <img src="https://source.unsplash.com/105x105/?teacher,language" alt="">
+            <h4>Nur Aisyah</h4>
+            <p>Guru PKN</p>
+        </div>
+
+        <!-- Guru 7 -->
+        <div class="teacher-card">
+            <img src="https://source.unsplash.com/106x106/?teacher,art" alt="">
+            <h4>Rina Handayani</h4>
+            <p>Guru Seni Budaya</p>
+        </div>
+
+        <!-- Guru 8 -->
+        <div class="teacher-card">
+            <img src="https://source.unsplash.com/107x107/?teacher,sport" alt="">
+            <h4>Muhammad Rizki</h4>
+            <p>Guru PJOK</p>
+        </div>
+
+        <!-- Guru 9 -->
+        <div class="teacher-card">
+            <img src="https://source.unsplash.com/108x108/?teacher,computer" alt="">
+            <h4>Lina Marlina</h4>
+            <p>Guru TIK</p>
+        </div>
+
+    </div>
+</section>
+
+    <!-- NEWS -->
     <section id="news">
         <h2 class="section-title">Berita & Pengumuman</h2>
         <div class="news-cards">
-            <div class="card"><img src="https://source.unsplash.com/500x300/?school,event"><div class="card-body"><h3>Pentas Seni Tahunan</h3><p>Kegiatan pentas seni tahunan dilaksanakan dengan antusias oleh seluruh siswa dan guru, menampilkan bakat kreatif siswa di berbagai bidang.</p></div></div>
-            <div class="card"><img src="https://source.unsplash.com/501x301/?students,award"><div class="card-body"><h3>Prestasi Siswa</h3><p>Siswa SDN 1 Pasar Dingin berhasil meraih juara dalam lomba matematika dan sains tingkat kota. Selamat kepada para juara!</p></div></div>
+            <div class="card"><img src="https://source.unsplash.com/500x300/?school,event"><div class="card-body"><h3>Pentas Seni Tahunan</h3><p>Kegiatan pentas seni tahunan dilaksanakan dengan meriah oleh siswa dan guru.</p></div></div>
+            <div class="card"><img src="https://source.unsplash.com/501x301/?students,award"><div class="card-body"><h3>Prestasi Siswa</h3><p>Siswa SDN 1 Pasar Dingin meraih juara lomba sains tingkat kota.</p></div></div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer>
         <p>&copy; 2025 SDN 1 Pasar Dingin. All Rights Reserved.</p>
-        <p>Alamat: Jl. Pasar Dingin No.1, Kota Anda | Email: info@sdn1pasardingin.sch.id | Telp: (021) 1234567</p>
+        <p>Alamat: Jl. Pasar Dingin No.1 | Email: info@sdn1pasardingin.sch.id | Telp: (021) 1234567</p>
         <p><a href="#">Kembali ke atas</a></p>
     </footer>
+
 </body>
 </html>

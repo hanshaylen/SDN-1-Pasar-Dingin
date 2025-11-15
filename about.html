@@ -4,92 +4,138 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About - SDN 1 Pasar Dingin</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <style>
-    * {margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-    body {line-height:1.6;background:#f9f9f9;color:#333;}
-    
-    /* Navbar */
-    .navbar {display:flex;justify-content:space-between;align-items:center;padding:15px 20px;background:#2C3E50;color:#fff;position:sticky;top:0;z-index:100;flex-wrap:wrap;}
-    .navbar .logo {font-size:22px;font-weight:700;letter-spacing:1px;}
-    .navbar ul {list-style:none;display:flex;flex-wrap:wrap;margin-top:10px;}
-    .navbar ul li {margin-left:20px;}
-    .navbar ul li a {color:inherit;text-decoration:none;transition:0.3s;font-size:16px;}
-    .navbar ul li a:hover {color:#e67e22;}
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 
-    /* Hero Section */
-    .hero {display:flex;align-items:center;justify-content:center;height:50vh;background:url('https://source.unsplash.com/1600x900/?school,education') no-repeat center center/cover;color:#fff;text-align:center;position:relative;padding:0 10px;}
-    .hero::after {content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);}
-    .hero-content {position:relative;z-index:1;}
-    .hero h1 {font-size:32px;margin-bottom:15px;}
-    .hero p {font-size:16px;}
+    body{background:#f9f9f9;}
 
-    section {padding:60px 20px;}
-    .section-title {text-align:center;font-size:28px;margin-bottom:40px;color:#2C3E50;position:relative;}
-    .section-title::after {content:'';display:block;width:50px;height:4px;background:#e67e22;margin:10px auto 0;border-radius:2px;}
+    /* NAVBAR */
+    .navbar{
+        background:#2C3E50;
+        padding:15px 25px;
+        color:white;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        position:relative;
+    }
 
-    /* About Section */
-    .about {display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;}
-    .about img {width:45%;border-radius:15px;margin-bottom:20px;}
-    .about-text {width:50%;}
-    
-    /* Footer */
-    footer {background:#2C3E50;color:#fff;text-align:center;padding:30px 20px;margin-top:40px;}
-    footer a {color:#e67e22;text-decoration:none;}
+    .navbar .logo{
+        font-size:20px;
+        font-weight:600;
+    }
 
+    .navbar ul{
+        list-style:none;
+        display:flex;
+        gap:20px;
+        transition:0.3s ease-in-out;
+    }
+
+    .navbar ul li a{
+        color:white;
+        text-decoration:none;
+        font-size:16px;
+    }
+
+    /* HAMBURGER BUTTON */
+    .hamburger{
+        display:none;
+        flex-direction:column;
+        cursor:pointer;
+        gap:5px;
+    }
+
+    .hamburger span{
+        width:25px;
+        height:3px;
+        background:white;
+        border-radius:5px;
+        transition:0.3s;
+    }
+
+    /* RESPONSIVE - MOBILE */
     @media(max-width:768px){
-        .navbar ul {flex-direction:column;margin-top:10px;}
-        .navbar ul li {margin:10px 0 0 0;}
-        .hero h1 {font-size:24px;}
-        .hero p {font-size:14px;}
-        .section-title {font-size:22px;}
-        .about {flex-direction:column;}
-        .about img, .about-text {width:100%;}
+        .hamburger{
+            display:flex;
+        }
+
+        .navbar ul{
+            position:absolute;
+            top:65px;
+            right:0;
+            background:#2C3E50;
+            width:100%;
+            flex-direction:column;
+            text-align:center;
+            padding:15px 0;
+            display:none;
+        }
+
+        .navbar ul.active{
+            display:block;
+        }
+    }
+
+    /* PAGE SECTION */
+    section{
+        padding:50px 30px;
+    }
+
+    .title{
+        text-align:center;
+        font-size:32px;
+        margin-bottom:20px;
+    }
+
+    .content{
+        max-width:900px;
+        margin:auto;
+        line-height:1.7;
+        text-align:justify;
     }
 </style>
 </head>
+
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="logo">SDN 1 Pasar Dingin</div>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="index.html#gallery">Gallery</a></li>
-            <li><a href="index.html#news">News</a></li>
-            <li><a href="index.html#teachers">Teachers</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
+<nav class="navbar">
+    <div class="logo">SDN 1 Pasar Dingin</div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Tentang SDN 1 Pasar Dingin</h1>
-            <p>Mendidik Generasi Cerdas, Kreatif, dan Berakhlak Mulia</p>
-        </div>
-    </section>
+    <!-- Hamburger -->
+    <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 
-    <!-- About Section -->
-    <section id="about">
-        <h2 class="section-title">Visi & Misi Sekolah</h2>
-        <div class="about">
-            <img src="https://source.unsplash.com/600x400/?school,classroom" alt="SDN 1 Pasar Dingin">
-            <div class="about-text">
-                <p>SDN 1 Pasar Dingin adalah sekolah dasar yang berdedikasi mencetak generasi unggul. Dengan kurikulum modern dan fasilitas lengkap, kami mendukung siswa belajar, berkreasi, dan berkembang secara optimal.</p>
-                <p>Kami menekankan pendidikan karakter, disiplin, dan kreativitas agar setiap siswa mampu menghadapi tantangan masa depan dengan percaya diri dan berakhlak mulia.</p>
-                <p><strong>Visi:</strong> Mendidik generasi cerdas, kreatif, dan berakhlak mulia.</p>
-                <p><strong>Misi:</strong> Memberikan pendidikan berkualitas, menumbuhkan karakter, dan memfasilitasi kreativitas siswa dalam kegiatan akademik maupun non-akademik.</p>
-            </div>
-        </div>
-    </section>
+    <ul id="menuList">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
 
-    <footer>
-        <p>&copy; 2025 SDN 1 Pasar Dingin. All Rights Reserved.</p>
-        <p>Alamat: Jl. Pasar Dingin No.1, Kota Anda | Email: info@sdn1pasardingin.sch.id | Telp: (021) 1234567</p>
-        <p><a href="index.html">Kembali ke Home</a></p>
-    </footer>
+<section>
+    <h1 class="title">Tentang SDN 1 Pasar Dingin</h1>
+
+    <div class="content">
+        <p>
+            SDN 1 Pasar Dingin berdiri sebagai sekolah dasar unggulan yang mengutamakan
+            kedisiplinan, karakter, dan peningkatan kemampuan akademik siswa.
+        </p>
+        <p>
+            Sekolah kami dilengkapi fasilitas modern, ruang kelas nyaman, serta tenaga pendidik profesional.
+        </p>
+    </div>
+</section>
+
+<script>
+function toggleMenu(){
+    document.getElementById("menuList").classList.toggle("active");
+}
+</script>
 
 </body>
 </html>
