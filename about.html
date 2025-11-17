@@ -4,162 +4,266 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About - SDN 1 Pasar Dingin</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-    * {margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-    body {background:#f9f9f9;color:#333;}
+/* ---------------------------------------------------------
+   GLOBAL STYLE
+--------------------------------------------------------- */
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
 
-    /* Navbar */
-    .navbar {
-        display:flex;
-        justify-content:space-between;
-        align-items:center;
-        padding:15px 20px;
-        background:#2C3E50;
-        color:#fff;
-        position:sticky;
-        top:0;
-        z-index:100;
-    }
+body {
+    background:#f4f6f9;
+    color:#333;
+    line-height:1.7;
+    scroll-behavior:smooth;
+}
 
-    .logo {font-size:22px;font-weight:700;}
+img {border-radius:12px;}
+
+/* ---------------------------------------------------------
+   NAVBAR
+--------------------------------------------------------- */
+.navbar {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 25px;
+    background:rgba(25, 42, 86, 0.95);
+    backdrop-filter:blur(10px);
+    color:white;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+.logo {
+    font-size:24px;
+    font-weight:700;
+    color:#f1c40f;
+}
+
+.navbar ul {
+    list-style:none;
+    display:flex;
+    gap:25px;
+}
+
+.navbar ul li a {
+    text-decoration:none;
+    font-weight:500;
+    font-size:15px;
+    color:#ecf0f1;
+    padding:6px 10px;
+    border-radius:6px;
+    transition:.3s;
+}
+
+.navbar ul li a:hover,
+.navbar ul li a.active {
+    background:#f1c40f;
+    color:#000;
+}
+
+.hamburger {
+    display:none;
+    font-size:32px;
+    cursor:pointer;
+}
+
+@media(max-width:768px){
+    .hamburger {display:block;}
 
     .navbar ul {
-        list-style:none;
-        display:flex;
-        gap:20px;
-    }
-
-    .navbar ul li a {
-        color:white;
-        text-decoration:none;
-        font-size:16px;
-        transition:.3s;
-    }
-
-    .navbar ul li a:hover {
-        color:#e67e22;
-    }
-
-    /* Hamburger */
-    .hamburger {
         display:none;
-        font-size:30px;
-        cursor:pointer;
-        user-select:none;
+        position:absolute;
+        top:70px;
+        right:10px;
+        background:#16213e;
+        width:220px;
+        flex-direction:column;
+        padding:20px;
+        border-radius:15px;
+        box-shadow:0 8px 20px rgba(0,0,0,0.3);
     }
 
-    @media(max-width:768px){
-        .hamburger {display:block;}
+    .navbar ul.show {display:flex;}
+}
 
-        .navbar ul {
-            position:absolute;
-            top:70px;
-            right:0;
-            width:200px;
-            background:#2C3E50;
-            flex-direction:column;
-            text-align:left;
-            padding:15px;
-            display:none;
-            border-bottom-left-radius:12px;
-        }
+/* ---------------------------------------------------------
+   HERO
+--------------------------------------------------------- */
+.hero {
+    height:60vh;
+    background:url('https://source.unsplash.com/1600x900/?school,education') center/cover no-repeat;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
+}
 
-        .navbar ul.show {
-            display:block;
-        }
-    }
+.hero::after {
+    content:'';
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.55);
+}
 
-    /* Page Content */
-    section {
-        padding:50px 25px;
-        max-width:900px;
-        margin:auto;
-    }
+.hero-content {
+    position:relative;
+    z-index:10;
+    animation:fadeIn 1.4s ease;
+}
 
-    .title {
-        text-align:center;
-        font-size:32px;
-        margin-bottom:20px;
-        color:#2C3E50;
-    }
+.hero h1 {
+    font-size:42px;
+    font-weight:700;
+}
 
-    .title::after {
-        content:'';
-        display:block;
-        width:60px;height:4px;
-        background:#e67e22;
-        border-radius:2px;
-        margin:10px auto;
-    }
+.hero p {
+    font-size:18px;
+    margin-top:10px;
+}
 
-    .content {
-        line-height:1.8;
-        text-align:justify;
-        font-size:16px;
-    }
+@keyframes fadeIn {
+    from {opacity:0;transform:translateY(20px);}
+    to {opacity:1;transform:translateY(0);}
+}
 
-    /* Footer (Copied from contact.html) */
-    footer {
-        background:#2C3E50;
-        color:#fff;
-        text-align:center;
-        padding:30px 20px;
-        margin-top:40px;
-    }
-    footer a {
-        color:#e67e22;
-        text-decoration:none;
-    }
+/* ---------------------------------------------------------
+   ABOUT CONTENT
+--------------------------------------------------------- */
+section {
+    padding:70px 25px;
+    max-width:1100px;
+    margin:auto;
+}
+
+.section-title {
+    text-align:center;
+    font-size:32px;
+    color:#16213e;
+    font-weight:700;
+    margin-bottom:40px;
+    position:relative;
+}
+
+.section-title::after {
+    content:'';
+    width:70px;
+    height:4px;
+    background:#f1c40f;
+    display:block;
+    margin:12px auto;
+    border-radius:5px;
+}
+
+/* Cards */
+.about-box {
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 8px 22px rgba(0,0,0,0.12);
+    margin-bottom:30px;
+    animation:fadeIn .8s ease;
+    line-height:1.8;
+    text-align:justify;
+}
+
+.about-img {
+    width:100%;
+    height:320px;
+    border-radius:20px;
+    object-fit:cover;
+    box-shadow:0 8px 25px rgba(0,0,0,0.2);
+    margin-bottom:30px;
+}
+
+/* ---------------------------------------------------------
+   FOOTER
+--------------------------------------------------------- */
+footer {
+    background:#16213e;
+    color:white;
+    padding:40px 20px;
+    text-align:center;
+}
+
+footer a {
+    color:#f1c40f;
+    text-decoration:none;
+}
+
+@media(max-width:520px){
+    .hero h1 {font-size:30px;}
+    .hero {height:50vh;}
+}
 </style>
 </head>
 
 <body>
 
-    <!-- NAVBAR -->
-    <nav class="navbar">
-        <div class="logo">SDN 1 Pasar Dingin</div>
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo">SDN 1 Pasar Dingin</div>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
 
-        <div class="hamburger" onclick="toggleMenu()">☰</div>
-
-        <ul id="menuList">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html" style="color:#e67e22;">About</a></li>
-            <li><a href="index.html#gallery">Gallery</a></li>
-            <li><a href="index.html#news">News</a></li>
-            <li><a href="index.html#teachers">Teachers</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
+    <ul id="menuList">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="index.html#gallery">Gallery</a></li>
+        <li><a href="index.html#news">News</a></li>
+        <li><a href="index.html#teachers">Teachers</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
 
 <script>
-    function toggleMenu(){
-        document.getElementById("menuList").classList.toggle("show");
-    }
+function toggleMenu(){
+    document.getElementById("menuList").classList.toggle("show");
+}
 </script>
 
-<section>
-    <h1 class="title">Tentang SDN 1 Pasar Dingin</h1>
-
-    <div class="content">
-        <p>
-            SDN 1 Pasar Dingin merupakan salah satu sekolah dasar yang berkomitmen untuk mencetak generasi yang cerdas,
-            disiplin, dan berakhlak mulia. Dengan lingkungan belajar yang kondusif, sekolah ini terus berkembang mengikuti
-            perkembangan dunia pendidikan modern.
-        </p>
-
-        <p>
-            Sekolah kami dilengkapi dengan fasilitas ruang kelas yang nyaman, area bermain yang aman, serta tenaga
-            pendidik yang profesional dan berdedikasi tinggi. Kami percaya bahwa setiap anak memiliki potensi besar yang
-            harus dikembangkan melalui pendidikan yang kreatif, menyenangkan, dan berkualitas.
-        </p>
-
-        <p>
-            SDN 1 Pasar Dingin selalu berupaya menciptakan suasana belajar yang aktif, inovatif, dan inspiratif agar
-            siswa mampu meraih prestasi akademik maupun non-akademik secara optimal.
-        </p>
+<!-- HERO SECTION -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Tentang SDN 1 Pasar Dingin</h1>
+        <p>Mewujudkan Pendidikan Berkualitas untuk Generasi Masa Depan</p>
     </div>
+</section>
+
+<!-- ABOUT CONTENT -->
+<section>
+
+    <img class="about-img" src="https://source.unsplash.com/1200x700/?school,classroom">
+
+    <h2 class="section-title">Profil Sekolah</h2>
+
+    <div class="about-box">
+        SDN 1 Pasar Dingin merupakan salah satu sekolah dasar yang berkomitmen untuk mencetak generasi yang cerdas,
+        disiplin, dan berakhlak mulia. Dengan lingkungan belajar yang kondusif, sekolah ini terus berkembang mengikuti
+        perkembangan dunia pendidikan modern.
+    </div>
+
+    <div class="about-box">
+        Sekolah kami dilengkapi dengan fasilitas ruang kelas yang nyaman, area bermain yang aman, serta tenaga
+        pendidik yang profesional dan berdedikasi tinggi. Kami percaya bahwa setiap anak memiliki potensi besar yang
+        harus dikembangkan melalui pendidikan yang kreatif, menyenangkan, dan berkualitas.
+    </div>
+
+    <div class="about-box">
+        SDN 1 Pasar Dingin selalu berupaya menciptakan suasana belajar yang aktif, inovatif, dan inspiratif agar
+        siswa mampu meraih prestasi akademik maupun non-akademik secara optimal.
+    </div>
+
 </section>
 
 <!-- FOOTER -->

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pendaftaran Siswa Baru - SDN 1 Pasar Dingin</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+    /* GLOBAL */
+    * {
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:'Poppins', sans-serif;
+    }
+    body {
+        background:#f4f6f9;
+        color:#333;
+    }
+    img {border-radius:12px;}
+
+    /* NAVBAR */
+    .navbar {
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:15px 25px;
+        background:rgba(25,42,86,0.95);
+        backdrop-filter:blur(10px);
+        color:white;
+        position:sticky;
+        top:0;
+        z-index:1000;
+        box-shadow:0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .logo {
+        font-size:24px;
+        font-weight:700;
+        color:#f1c40f;
+    }
+
+    .navbar ul {
+        list-style:none;
+        display:flex;
+        gap:25px;
+    }
+
+    .navbar ul li a {
+        text-decoration:none;
+        font-weight:500;
+        font-size:15px;
+        color:#ecf0f1;
+        padding:6px 10px;
+        transition:.3s;
+        border-radius:6px;
+    }
+
+    .navbar ul li a:hover {
+        background:#f1c40f;
+        color:#000;
+    }
+
+    .hamburger {
+        display:none;
+        font-size:32px;
+        cursor:pointer;
+    }
+
+    @media(max-width:768px){
+        .hamburger {display:block;}
+
+        .navbar ul {
+            display:none;
+            position:absolute;
+            top:70px;
+            right:10px;
+            background:#16213e;
+            width:200px;
+            flex-direction:column;
+            padding:20px;
+            border-radius:15px;
+            box-shadow:0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .navbar ul.show {display:flex;}
+    }
+
+    /* FORM CONTAINER */
+    .form-container {
+        max-width:700px;
+        margin:40px auto;
+        background:white;
+        padding:30px;
+        border-radius:20px;
+        box-shadow:0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    h2 {
+        text-align:center;
+        margin-bottom:25px;
+        font-size:28px;
+        color:#16213e;
+        font-weight:700;
+    }
+
+    label {
+        font-weight:600;
+        margin-top:15px;
+        display:block;
+        color:#333;
+    }
+
+    input, select, textarea {
+        width:100%;
+        padding:12px;
+        margin-top:8px;
+        border-radius:10px;
+        border:1.5px solid #ccc;
+        font-size:15px;
+        transition:.3s;
+    }
+
+    input:focus, select:focus, textarea:focus {
+        border-color:#f1c40f;
+        box-shadow:0 0 5px rgba(241,196,15,0.6);
+    }
+
+    textarea {height:110px;}
+
+    button {
+        margin-top:25px;
+        width:100%;
+        padding:14px;
+        border:none;
+        background:#f1c40f;
+        color:black;
+        font-size:16px;
+        border-radius:30px;
+        font-weight:600;
+        cursor:pointer;
+        transition:.3s;
+    }
+
+    button:hover {
+        background:#d4ac0d;
+        transform:translateY(-2px);
+    }
+
+    /* MOBILE SUPER CLEAN */
+    @media(max-width:480px){
+        .form-container {padding:22px;margin:25px;}
+        h2 {font-size:22px;}
+        button {font-size:14px;padding:12px;}
+        .navbar {padding:12px 18px;}
+        .logo {font-size:20px;}
+    }
+
+    /* FOOTER */
+    footer {
+        background:#16213e;
+        color:white;
+        padding:40px 20px;
+        text-align:center;
+        margin-top:50px;
+    }
+    footer a {color:#f1c40f;text-decoration:none;}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo">SDN 1 Pasar Dingin</div>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+
+    <ul id="menuList">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#gallery">Gallery</a></li>
+        <li><a href="index.html#news">News</a></li>
+        <li><a href="index.html#teachers">Teachers</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+<script>
+function toggleMenu(){
+    document.getElementById("menuList").classList.toggle("show");
+}
+</script>
+
+
+<!-- FORM -->
+<div class="form-container">
+    <h2>Pendaftaran Siswa Baru</h2>
+
+    <form>
+
+        <label>Nama Lengkap Siswa</label>
+        <input type="text" placeholder="Masukkan nama lengkap" required>
+
+        <label>Jenis Kelamin</label>
+        <select required>
+            <option value="">-- Pilih Jenis Kelamin --</option>
+            <option>Laki-laki</option>
+            <option>Perempuan</option>
+        </select>
+
+        <label>Tempat Lahir</label>
+        <input type="text" placeholder="Masukkan tempat lahir" required>
+
+        <label>Tanggal Lahir</label>
+        <input type="date" required>
+
+        <label>Alamat Lengkap</label>
+        <textarea placeholder="Masukkan alamat siswa" required></textarea>
+
+        <label>Nama Orang Tua / Wali</label>
+        <input type="text" placeholder="Nama orang tua / wali" required>
+
+        <label>No. Telepon Aktif</label>
+        <input type="tel" placeholder="08xxxxxxxxxx" required>
+
+        <label>Upload Kartu Keluarga (Foto/PDF)</label>
+        <input type="file" accept="image/*,.pdf">
+
+        <label>Upload Akta Kelahiran (Foto/PDF)</label>
+        <input type="file" accept="image/*,.pdf">
+
+        <button type="submit">Kirim Pendaftaran</button>
+
+    </form>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <p>&copy; 2025 SDN 1 Pasar Dingin. All Rights Reserved.</p>
+    <p>Alamat: Jl. Pasar Dingin No.1 | Email: info@sdn1pasardingin.sch.id | Telp: (021) 1234567</p>
+    <p><a href="#">Kembali ke atas</a></p>
+</footer>
+
+</body>
+</html>
